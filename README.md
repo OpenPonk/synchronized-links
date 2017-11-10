@@ -1,2 +1,3 @@
-# synchronized-relations
-Self-synchronizing relations.
+# Synchronized Links
+
+Self-synchronizing links between objects.

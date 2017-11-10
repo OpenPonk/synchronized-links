@@ -1,0 +1,15 @@
+SmalltalkCISpec {
+	#loading : [
+		SCIMetacelloLoadSpec {
+			#baseline : 'SynchronizedLinks',
+			#directory : 'repository',
+			#platforms : [ #pharo ]
+		}
+	],
+	#testing : {
+		#packages : [ 'SynchronizedLinks' ],
+		#coverage : {
+			#packages : [ 'SynchronizedLinks' ]
+		}
+	}
+}
