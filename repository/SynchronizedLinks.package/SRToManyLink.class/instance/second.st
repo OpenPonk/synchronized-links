@@ -1,3 +1,3 @@
-copying
+accessing
 second
 	^ collection second

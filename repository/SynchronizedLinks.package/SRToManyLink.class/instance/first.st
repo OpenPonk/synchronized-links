@@ -1,3 +1,3 @@
-copying
+accessing
 first
 	^ collection first
