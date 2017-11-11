@@ -1,0 +1,1 @@
+I represent a collection of references to multiple objects.

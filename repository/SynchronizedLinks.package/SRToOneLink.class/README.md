@@ -1,0 +1,1 @@
+I represent a reference to a single object.

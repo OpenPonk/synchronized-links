@@ -1,3 +1,7 @@
 accessing
 books
-	^ books ifNil: [ books := SRManyToManyLink from: self to: #authors ]
+	^ books
+		ifNil: [ books := SRToManyLink
+				on: self
+				slot: #books
+				oppositeSlot: #authors ]
