@@ -4,21 +4,19 @@
 Self-synchronizing links between objects.
 
 ```smalltalk
-| r1 b1 |
-r1 := SRTestReview new.
-b1 := SRTestBook new.
-r1 book: b1.
-self assert: r1 book equals: b1.
-self assert: b1 reviews asArray equals: {r1}
+review := SRTestReview new.
+book := SRTestBook new.
+review book: book.
+self assert: review book equals: book.
+self assert: book reviews asArray equals: {review}
 ```
 
 ```smalltalk
-| a1 b1 |
-a1 := SRTestAuthor new.
-b1 := SRTestBook new.
-a1 books add: b1.
-self assert: a1 books asArray equals: {b1}.
-self assert: b1 authors asArray equals: {a1}
+author := SRTestAuthor new.
+book := SRTestBook new.
+author books add: book.
+self assert: author books asArray equals: {book}.
+self assert: book authors asArray equals: {author}
 ```
 
 ## Installation
@@ -70,3 +68,8 @@ Book>>reviews: aCollection
 ### Combinations
 
 The link will automatically resolve what is on the opposite side, so all variations (1:1, 1:N, N:1, N:M) work automatically.
+
+### Other possibly interesting notes
+
+The objects are internally stored in a OrderedCollection. Support for Set/Bag/OrderedSet will be probably added in the future.
+Slot implementation will probably also be added in the future.
