@@ -1,5 +1,5 @@
 # Synchronized Links
-[![Build Status](https://travis-ci.org/peteruhnak/synchronized-links.svg?branch=master)](https://travis-ci.org/peteruhnak/synchronized-links) [![Coverage Status](https://coveralls.io/repos/github/peteruhnak/synchronized-links/badge.svg?branch=master)](https://coveralls.io/github/peteruhnak/synchronized-links?branch=master)
+[![Build Status](https://travis-ci.org/OpenPonk/synchronized-links.svg?branch=master)](https://travis-ci.org/OpenPonk/synchronized-links) [![Coverage Status](https://coveralls.io/repos/github/OpenPonk/synchronized-links/badge.svg?branch=master)](https://coveralls.io/github/OpenPonk/synchronized-links?branch=master)
 
 Self-synchronizing links between objects.
 
@@ -24,7 +24,7 @@ self assert: book authors asArray equals: {author}
 ```
 Metacello new
 	baseline: 'SynchronizedLinks';
-	repository: 'github://peteruhnak/synchronized-links/repository';
+	repository: 'github://OpenPonk/synchronized-links/repository';
 	load.
 ```
 
