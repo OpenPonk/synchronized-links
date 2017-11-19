@@ -1,0 +1,3 @@
+copying
+copy
+	^ collection copy
