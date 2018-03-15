@@ -3,7 +3,7 @@ on: aSource slot: aSourceSlotName oppositeSlot: aTargetSlotName updateFrom: anOl
 	"S1 <-> T1 | S2 <-> T2 | S1: T2"
 
 	anOldTarget = aNewTarget
-		ifTrue: [ ^ self ].
+		ifTrue: [ ^ aNewTarget ].
 
 	"T1 s: nil"
 	self detach: aSource from: anOldTarget using: aTargetSlotName.
