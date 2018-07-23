@@ -21,7 +21,7 @@ self assert: book authors asArray equals: {author}
 
 ## Installation
 
-```
+```smalltalk
 Metacello new
 	baseline: 'SynchronizedLinks';
 	repository: 'github://OpenPonk/synchronized-links/repository';
