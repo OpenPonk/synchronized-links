@@ -38,7 +38,7 @@ Review has a reference to a Single books.
 Review>>book
   ^ book
 
-Review>>book
+Review>>book: aBook
   book := SRToOneLink
     on: self
     slot: #book
