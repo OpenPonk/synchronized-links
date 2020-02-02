@@ -10,8 +10,15 @@ Class {
 		'collection',
 		'slotName'
 	],
-	#category : 'SynchronizedLinks-Links'
+	#category : #'SynchronizedLinks-Links'
 }
+
+{ #category : #'instance creation' }
+SRToManyLink class >> fromSton: stonReader [
+	^ self new
+		fromSton: stonReader;
+		yourself
+]
 
 { #category : #'instance creation' }
 SRToManyLink class >> on: aSource slot: aSourceSlot oppositeSlot: aTargetSlotName [
@@ -141,6 +148,11 @@ SRToManyLink >> size [
 { #category : #private }
 SRToManyLink >> species [
 	^ OrderedCollection
+]
+
+{ #category : #'ston persistence' }
+SRToManyLink >> stonOn: stonWriter [
+	stonWriter writeObject: self
 ]
 
 { #category : #adding }

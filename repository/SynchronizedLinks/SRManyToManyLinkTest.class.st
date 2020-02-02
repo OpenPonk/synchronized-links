@@ -1,7 +1,7 @@
 Class {
 	#name : #SRManyToManyLinkTest,
 	#superclass : #TestCase,
-	#category : 'SynchronizedLinks-Tests'
+	#category : #'SynchronizedLinks-Tests'
 }
 
 { #category : #tests }
@@ -57,6 +57,25 @@ SRManyToManyLinkTest >> testFromNone [
 	a1 books add: b1.
 	self assert: a1 books asArray equals: {b1}.
 	self assert: b1 authors asArray equals: {a1}
+]
+
+{ #category : #tests }
+SRManyToManyLinkTest >> testSton [
+	| author b1 b2 ston materializedA2 |
+	author := SRTestAuthor new.
+	b1 := SRTestBook new.
+	b2 := SRTestBook new.
+	author books add: b1.
+	author books add: b2.
+	ston := STON toStringPretty: author.
+	materializedA2 := STON fromString: ston.
+	self assertCollection: materializedA2 books size equals: 2.
+	self
+		assertCollection: materializedA2 books first authors size
+		equals: 1.
+	self
+		assertCollection: materializedA2 books first authors first
+		equals: materializedA2
 ]
 
 { #category : #tests }
