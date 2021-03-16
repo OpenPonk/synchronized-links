@@ -1,0 +1,7 @@
+{
+	"include" : [
+		{ "repository" : "OpenPonk/openponk" },
+		{ "repository" : "OpenPonk/uml-shapes" },
+		{ "repository" : "OpenPonk/borm-model" }
+	]
+}
