@@ -145,6 +145,12 @@ SRToManyLink >> size [
 	^ collection size
 ]
 
+{ #category : #sorting }
+SRToManyLink >> sort: aSortBlock [
+
+	collection sort: aSortBlock
+]
+
 { #category : #private }
 SRToManyLink >> species [
 	^ OrderedCollection
