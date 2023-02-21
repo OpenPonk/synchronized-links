@@ -80,6 +80,12 @@ SRToManyLink >> includes: anObject [
 	^ collection includes: anObject
 ]
 
+{ #category : #accessing }
+SRToManyLink >> indexOf: anElement [
+
+	^ collection indexOf: anElement
+]
+
 { #category : #adding }
 SRToManyLink >> initialize [
 	super initialize.
