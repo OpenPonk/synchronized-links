@@ -1,10 +1,12 @@
 Class {
-	#name : #SRManyToManyLinkTest,
-	#superclass : #TestCase,
-	#category : #'SynchronizedLinks-Tests'
+	#name : 'SRManyToManyLinkTest',
+	#superclass : 'TestCase',
+	#category : 'SynchronizedLinks-Tests',
+	#package : 'SynchronizedLinks',
+	#tag : 'Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkTest >> testChangePair [
 	| a1 b1 a2 b2 |
 	a1 := SRTestAuthor new.
@@ -20,7 +22,7 @@ SRManyToManyLinkTest >> testChangePair [
 	self assert: b2 authors asArray equals: {a2}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkTest >> testFromCollection [
 	| a1 b1 b2 |
 	a1 := SRTestAuthor new.
@@ -33,7 +35,7 @@ SRManyToManyLinkTest >> testFromCollection [
 	self assert: b1 authors asArray equals: {}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkTest >> testFromCollectionMultiple [
 	| b1 a1 a2 |
 	b1 := SRTestBook new.
@@ -49,7 +51,7 @@ SRManyToManyLinkTest >> testFromCollectionMultiple [
 	self assert: a2 books asArray equals: {}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkTest >> testFromNone [
 	| a1 b1 |
 	a1 := SRTestAuthor new.
@@ -59,7 +61,7 @@ SRManyToManyLinkTest >> testFromNone [
 	self assert: b1 authors asArray equals: {a1}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkTest >> testSton [
 	| author b1 b2 ston materializedA2 |
 	author := SRTestAuthor new.
@@ -78,7 +80,7 @@ SRManyToManyLinkTest >> testSton [
 		equals: materializedA2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkTest >> testToNone [
 	| a1 b1 |
 	a1 := SRTestAuthor new.

@@ -2,15 +2,17 @@
 author ->  books: N:M
 "
 Class {
-	#name : #SRTestAuthor,
-	#superclass : #Object,
+	#name : 'SRTestAuthor',
+	#superclass : 'Object',
 	#instVars : [
 		'books'
 	],
-	#category : 'SynchronizedLinks-Tests'
+	#category : 'SynchronizedLinks-Tests',
+	#package : 'SynchronizedLinks',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestAuthor >> books [
 	^ books
 		ifNil: [ books := SRToManyLink
@@ -19,7 +21,7 @@ SRTestAuthor >> books [
 				oppositeSlot: #authors ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestAuthor >> books: aCollection [
 	self books
 		removeAll;

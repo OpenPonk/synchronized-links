@@ -1,1 +1,1 @@
-Package { #name : #SynchronizedLinks }
+Package { #name : 'SynchronizedLinks' }

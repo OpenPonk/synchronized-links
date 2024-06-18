@@ -3,21 +3,23 @@ reviews -> book: N:1
 review -> score: 1:1
 "
 Class {
-	#name : #SRTestReview,
-	#superclass : #Object,
+	#name : 'SRTestReview',
+	#superclass : 'Object',
 	#instVars : [
 		'book',
 		'score'
 	],
-	#category : 'SynchronizedLinks-Tests'
+	#category : 'SynchronizedLinks-Tests',
+	#package : 'SynchronizedLinks',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestReview >> book [
 	^ book
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestReview >> book: aBook [
 	book := SRToOneLink
 		on: self
@@ -27,12 +29,12 @@ SRTestReview >> book: aBook [
 		to: aBook
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestReview >> score [
 	^ score
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestReview >> score: aScore [
 	score := SRToOneLink
 		on: self

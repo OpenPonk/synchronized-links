@@ -2,12 +2,13 @@
 Baseline for https://github.com/OpenPonk/synchronized-links
 "
 Class {
-	#name : #BaselineOfSynchronizedLinks,
-	#superclass : #BaselineOf,
-	#category : 'BaselineOfSynchronizedLinks'
+	#name : 'BaselineOfSynchronizedLinks',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfSynchronizedLinks',
+	#package : 'BaselineOfSynchronizedLinks'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfSynchronizedLinks >> baseline: spec [
 	<baseline>
 	spec

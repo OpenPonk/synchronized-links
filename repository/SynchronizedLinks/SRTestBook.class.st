@@ -3,16 +3,18 @@ books ->  authors: N:M
 book -> reviews: 1:N
 "
 Class {
-	#name : #SRTestBook,
-	#superclass : #Object,
+	#name : 'SRTestBook',
+	#superclass : 'Object',
 	#instVars : [
 		'authors',
 		'reviews'
 	],
-	#category : 'SynchronizedLinks-Tests'
+	#category : 'SynchronizedLinks-Tests',
+	#package : 'SynchronizedLinks',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestBook >> authors [
 	^ authors
 		ifNil: [ authors := SRToManyLink
@@ -21,14 +23,14 @@ SRTestBook >> authors [
 				oppositeSlot: #books ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestBook >> authors: aCollection [
 	self authors
 		removeAll;
 		addAll: aCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestBook >> reviews [
 	^ reviews
 		ifNil: [ reviews := SRToManyLink
@@ -37,7 +39,7 @@ SRTestBook >> reviews [
 				oppositeSlot: #book ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRTestBook >> reviews: aCollection [
 	self reviews
 		removeAll;

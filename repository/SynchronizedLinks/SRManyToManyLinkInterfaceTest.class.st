@@ -1,15 +1,17 @@
 Class {
-	#name : #SRManyToManyLinkInterfaceTest,
-	#superclass : #TestCase,
+	#name : 'SRManyToManyLinkInterfaceTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'a1',
 		'b1',
 		'b2'
 	],
-	#category : 'SynchronizedLinks-Tests'
+	#category : 'SynchronizedLinks-Tests',
+	#package : 'SynchronizedLinks',
+	#tag : 'Tests'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SRManyToManyLinkInterfaceTest >> setUp [
 	a1 := SRTestAuthor new.
 	b1 := SRTestBook new.
@@ -18,19 +20,19 @@ SRManyToManyLinkInterfaceTest >> setUp [
 	a1 books add: b2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testAt [
 	self assert: (a1 books at: 1) equals: a1 books first.
 	self assert: (a1 books at: 2) equals: a1 books second
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testAtLast [
 	self assert: (a1 books atLast: 2) equals: a1 books first.
 	self assert: (a1 books atLast: 1) equals: a1 books second
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testCopy [
 	| books copy |
 	books := a1 books.
@@ -45,7 +47,7 @@ SRManyToManyLinkInterfaceTest >> testCopy [
 	self assert: copy size equals: 0
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testCopyEmpty [
 	| empty |
 	empty := a1 books copyEmpty.
@@ -53,27 +55,27 @@ SRManyToManyLinkInterfaceTest >> testCopyEmpty [
 	self assert: empty species equals: a1 books species
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testFirst [
 	self assert: a1 books first equals: b1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testLast [
 	self assert: a1 books last equals: b2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testLastN [
 	self assert: (a1 books last: 2) asArray equals: (Array with: b1 with: b2)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testSecond [
 	self assert: a1 books second equals: b2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testSpecies [
 	self assert: a1 books species equals: OrderedCollection
 ]

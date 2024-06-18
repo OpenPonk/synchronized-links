@@ -2,12 +2,14 @@
 I represent a reference to a single object.
 "
 Class {
-	#name : #SRToOneLink,
-	#superclass : #Object,
-	#category : 'SynchronizedLinks-Links'
+	#name : 'SRToOneLink',
+	#superclass : 'Object',
+	#category : 'SynchronizedLinks-Links',
+	#package : 'SynchronizedLinks',
+	#tag : 'Links'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SRToOneLink class >> attach: anItem to: aContainer using: anItemSlotName [
 	| oppositeValue |
 	aContainer ifNil: [ ^ self ].
@@ -17,7 +19,7 @@ SRToOneLink class >> attach: anItem to: aContainer using: anItemSlotName [
 		ifFalse: [ aContainer writeSlotNamed: anItemSlotName value: anItem ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SRToOneLink class >> detach: anItem from: aContainer using: anItemSlotName [
 	| oppositeValue |
 	aContainer ifNil: [ ^ self ].
@@ -30,7 +32,7 @@ SRToOneLink class >> detach: anItem from: aContainer using: anItemSlotName [
 		ifFalse: [ aContainer writeSlotNamed: anItemSlotName value: nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SRToOneLink class >> on: aSource slot: aSourceSlotName oppositeSlot: aTargetSlotName updateFrom: anOldTarget to: aNewTarget [
 	"S1 <-> T1 | S2 <-> T2 | S1: T2"
 

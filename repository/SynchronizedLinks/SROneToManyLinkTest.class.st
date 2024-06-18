@@ -1,10 +1,12 @@
 Class {
-	#name : #SROneToManyLinkTest,
-	#superclass : #TestCase,
-	#category : 'SynchronizedLinks-Tests'
+	#name : 'SROneToManyLinkTest',
+	#superclass : 'TestCase',
+	#category : 'SynchronizedLinks-Tests',
+	#package : 'SynchronizedLinks',
+	#tag : 'Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SROneToManyLinkTest >> testChangePair [
 	| r1 b1 r2 b2 |
 	r1 := SRTestReview new.
@@ -20,7 +22,7 @@ SROneToManyLinkTest >> testChangePair [
 	self assert: b1 reviews asArray equals: {}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SROneToManyLinkTest >> testFromNone [
 	| r1 b1 |
 	r1 := SRTestReview new.
@@ -30,7 +32,7 @@ SROneToManyLinkTest >> testFromNone [
 	self assert: b1 reviews asArray equals: {r1}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SROneToManyLinkTest >> testToNone [
 	| r1 b1 |
 	r1 := SRTestReview new.

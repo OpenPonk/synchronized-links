@@ -2,30 +2,32 @@
 I represent a collection of references to multiple objects.
 "
 Class {
-	#name : #SRToManyLink,
-	#superclass : #Collection,
+	#name : 'SRToManyLink',
+	#superclass : 'Collection',
 	#instVars : [
 		'source',
 		'targetSlotName',
 		'collection',
 		'slotName'
 	],
-	#category : #'SynchronizedLinks-Links'
+	#category : 'SynchronizedLinks-Links',
+	#package : 'SynchronizedLinks',
+	#tag : 'Links'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SRToManyLink class >> fromSton: stonReader [
 	^ self new
 		fromSton: stonReader;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SRToManyLink class >> on: aSource slot: aSourceSlot oppositeSlot: aTargetSlotName [
 	^ self new setSource: aSource slot: aSourceSlot  oppositeSlot: aTargetSlotName
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SRToManyLink >> add: aNewObject [
 	(self includes: aNewObject)
 		ifTrue: [ ^ aNewObject ].
@@ -35,7 +37,7 @@ SRToManyLink >> add: aNewObject [
 	^ aNewObject
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SRToManyLink >> addOppositeTo: anObject [
 	| oppositeObject |
 	oppositeObject := anObject readSlotNamed: targetSlotName.
@@ -44,65 +46,65 @@ SRToManyLink >> addOppositeTo: anObject [
 		ifFalse: [ anObject writeSlotNamed: targetSlotName value: source ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRToManyLink >> at: anInteger [
 	^ collection at: anInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRToManyLink >> atLast: anInteger [
 	^ collection atLast: anInteger
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 SRToManyLink >> copy [
 	^ collection copy
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 SRToManyLink >> copyEmpty [
 	^ collection copyEmpty 
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 SRToManyLink >> do: aBlock [
 	collection do: aBlock
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRToManyLink >> first [
 	^ collection first
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SRToManyLink >> includes: anObject [
 	^ collection includes: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRToManyLink >> indexOf: anElement [
 
 	^ collection indexOf: anElement
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SRToManyLink >> initialize [
 	super initialize.
 	collection := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRToManyLink >> last [
 	^ collection last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRToManyLink >> last: n [
 	^ collection last: n
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 SRToManyLink >> remove: oldObject ifAbsent: anExceptionBlock [
 	oldObject ifNil: [ "there is some oddity when instantiating metamodel" ^ self ].
 	(collection includes: oldObject)
@@ -111,12 +113,12 @@ SRToManyLink >> remove: oldObject ifAbsent: anExceptionBlock [
 	collection remove: oldObject" ifAbsent: [  ]"
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 SRToManyLink >> removeAll [
 	[ self isNotEmpty ] whileTrue: [ self remove: self anyOne ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SRToManyLink >> removeOppositeFrom: anObject [
 	| oppositeObject |
 	oppositeObject := anObject perform: targetSlotName.
@@ -134,45 +136,45 @@ SRToManyLink >> removeOppositeFrom: anObject [
 				ifFalse: [ doubleOpposite writeSlotNamed: slotName value: nil ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRToManyLink >> second [
 	^ collection second
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SRToManyLink >> setSource: aSource slot: aSlotName oppositeSlot: aTargetSlotName [
 	source := aSource.
 	slotName := aSlotName.
 	targetSlotName := aTargetSlotName.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SRToManyLink >> size [
 	^ collection size
 ]
 
-{ #category : #sorting }
+{ #category : 'sorting' }
 SRToManyLink >> sort: aSortBlock [
 
 	collection sort: aSortBlock
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SRToManyLink >> species [
 	^ OrderedCollection
 ]
 
-{ #category : #'ston persistence' }
+{ #category : 'ston persistence' }
 SRToManyLink >> stonOn: stonWriter [
 	stonWriter writeObject: self
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SRToManyLink >> uncheckedAdd: anObject [
 	^ collection addIfNotPresent: anObject
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 SRToManyLink >> uncheckedRemove: anObject [
 	collection remove: anObject
 ]

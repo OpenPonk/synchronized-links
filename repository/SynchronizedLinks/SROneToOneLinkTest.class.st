@@ -1,10 +1,12 @@
 Class {
-	#name : #SROneToOneLinkTest,
-	#superclass : #TestCase,
-	#category : 'SynchronizedLinks-Tests'
+	#name : 'SROneToOneLinkTest',
+	#superclass : 'TestCase',
+	#category : 'SynchronizedLinks-Tests',
+	#package : 'SynchronizedLinks',
+	#tag : 'Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SROneToOneLinkTest >> testBothFromNil [
 	| r1 s1 |
 	r1 := SRTestReview new.
@@ -14,7 +16,7 @@ SROneToOneLinkTest >> testBothFromNil [
 	self assert: r1 score equals: s1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SROneToOneLinkTest >> testChangePair [
 	| r1 s1 r2 s2 |
 	r1 := SRTestReview new.
@@ -30,7 +32,7 @@ SROneToOneLinkTest >> testChangePair [
 	self assert: s2 review equals: nil
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SROneToOneLinkTest >> testNothingChanged [
 	| r1 s1 |
 	r1 := SRTestReview new.
@@ -43,7 +45,7 @@ SROneToOneLinkTest >> testNothingChanged [
 	self assert: r1 score equals: s1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SROneToOneLinkTest >> testToNil [
 	| r1 s1 |
 	r1 := SRTestReview new.
