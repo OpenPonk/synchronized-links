@@ -1,15 +1,15 @@
 SmalltalkCISpec {
 	#loading : [
 		SCIMetacelloLoadSpec {
-			#baseline : 'SynchronizedLinks',
+			#baseline : 'OpenPonkSynchronizedLinks',
 			#directory : 'repository',
 			#platforms : [ #pharo ]
 		}
 	],
 	#testing : {
-		#packages : [ 'SynchronizedLinks' ],
+		#packages : [ 'OpenPonk*' ],
 		#coverage : {
-			#packages : [ 'SynchronizedLinks' ]
+			#packages : [ 'OpenPonk-SynchronizedLink*' ]
 		}
 	}
 }
