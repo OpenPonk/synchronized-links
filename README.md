@@ -23,7 +23,7 @@ self assert: book authors asArray equals: {author}
 
 ```smalltalk
 Metacello new
-	baseline: 'SynchronizedLinks';
+	baseline: 'OpenPonkSynchronizedLinks';
 	repository: 'github://OpenPonk/synchronized-links/repository';
 	load.
 ```
