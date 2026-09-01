@@ -1,5 +1,6 @@
 "
-I represent a collection of references to multiple objects.
+Specialized collection managing a synchronized bidirectional relationship to multiple objects.
+Automatically reflects additions or removals in the opposite reference slot (either to-one or to-many) on the target object.
 "
 Class {
 	#name : 'SRToManyLink',
@@ -88,7 +89,7 @@ SRToManyLink >> indexOf: anElement [
 	^ collection indexOf: anElement
 ]
 
-{ #category : 'adding' }
+{ #category : 'initialization' }
 SRToManyLink >> initialize [
 	super initialize.
 	collection := OrderedCollection new

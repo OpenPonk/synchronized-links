@@ -1,6 +1,6 @@
 "
-books ->  authors: N:M
-book -> reviews: 1:N
+Mock domain model representing a book.
+Used exclusively for testing synchronized links, maintaining a many-to-many relationship with SRTestAuthor and a one-to-many relationship with SRTestReview.
 "
 Class {
 	#name : 'SRTestBook',

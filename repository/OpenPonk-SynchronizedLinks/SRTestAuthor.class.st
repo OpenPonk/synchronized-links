@@ -1,5 +1,6 @@
 "
-author ->  books: N:M
+Mock domain model representing an author.
+Used exclusively for testing many-to-many synchronized links with SRTestBook.
 "
 Class {
 	#name : 'SRTestAuthor',

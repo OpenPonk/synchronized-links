@@ -1,3 +1,6 @@
+"
+Unit tests verifying the automatic synchronization behavior of SRToManyLink when managing a bidirectional many-to-many relationship.
+"
 Class {
 	#name : 'SRManyToManyLinkTest',
 	#superclass : 'TestCase',

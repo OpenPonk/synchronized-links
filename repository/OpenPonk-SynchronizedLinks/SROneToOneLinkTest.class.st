@@ -1,3 +1,6 @@
+"
+Unit tests verifying the automatic synchronization behavior managed by SRToOneLink for a bidirectional one-to-one relationship.
+"
 Class {
 	#name : 'SROneToOneLinkTest',
 	#superclass : 'TestCase',

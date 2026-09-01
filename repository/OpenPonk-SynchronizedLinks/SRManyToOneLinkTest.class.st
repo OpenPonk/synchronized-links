@@ -1,3 +1,6 @@
+"
+Unit tests verifying the automatic synchronization behavior between a to-many collection and a to-one reference (a many-to-one relationship).
+"
 Class {
 	#name : 'SRManyToOneLinkTest',
 	#superclass : 'TestCase',

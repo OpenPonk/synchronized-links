@@ -1,5 +1,6 @@
 "
-I represent a reference to a single object.
+Provides utility methods to manage a synchronized bidirectional reference to a single object.
+Automatically attaches or detaches the opposite side of a one-to-one or many-to-one relationship when the primary reference is updated.
 "
 Class {
 	#name : 'SRToOneLink',

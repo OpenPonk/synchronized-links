@@ -1,5 +1,6 @@
 "
-score -> review: 1:1
+Mock domain model representing a score.
+Used exclusively for testing one-to-one synchronized links with SRTestReview.
 "
 Class {
 	#name : 'SRTestScore',

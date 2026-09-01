@@ -1,3 +1,6 @@
+"
+Unit tests verifying the standard collection interface methods (such as #first, #last, and #at:) of SRToManyLink within a many-to-many relationship context.
+"
 Class {
 	#name : 'SRManyToManyLinkInterfaceTest',
 	#superclass : 'TestCase',
@@ -11,8 +14,10 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'initialization' }
+{ #category : 'running' }
 SRManyToManyLinkInterfaceTest >> setUp [
+
+	super setUp.
 	a1 := SRTestAuthor new.
 	b1 := SRTestBook new.
 	b2 := SRTestBook new.
