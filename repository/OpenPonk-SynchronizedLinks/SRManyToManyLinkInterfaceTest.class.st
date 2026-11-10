@@ -54,9 +54,10 @@ SRManyToManyLinkInterfaceTest >> testCopy [
 
 { #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testCopyEmpty [
+
 	| empty |
 	empty := a1 books copyEmpty.
-	self assert: empty isEmpty.
+	self assertEmpty: empty.
 	self assert: empty species equals: a1 books species
 ]
 
