@@ -14,5 +14,6 @@ BaselineOfOpenPonkSynchronizedLinks >> baseline: spec [
 	spec
 		for: #common
 		do: [ spec package: 'OpenPonk-SynchronizedLinks'.
-			spec group: 'default' with: #('OpenPonk-SynchronizedLinks') ]
+			spec package: 'OpenPonk-SynchronizedLinks-Tests' with: [ spec requires: #('OpenPonk-SynchronizedLinks') ].
+			spec group: 'default' with: #('OpenPonk-SynchronizedLinks' 'OpenPonk-SynchronizedLinks-Tests') ]
 ]

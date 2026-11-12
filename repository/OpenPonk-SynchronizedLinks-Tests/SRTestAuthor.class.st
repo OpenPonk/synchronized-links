@@ -8,9 +8,9 @@ Class {
 	#instVars : [
 		'books'
 	],
-	#category : 'OpenPonk-SynchronizedLinks-Tests',
-	#package : 'OpenPonk-SynchronizedLinks',
-	#tag : 'Tests'
+	#category : 'OpenPonk-SynchronizedLinks-Tests-Links',
+	#package : 'OpenPonk-SynchronizedLinks-Tests',
+	#tag : 'Links'
 }
 
 { #category : 'accessing' }

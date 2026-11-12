@@ -4,9 +4,9 @@ Unit tests verifying the automatic synchronization behavior between a to-one ref
 Class {
 	#name : 'SROneToManyLinkTest',
 	#superclass : 'TestCase',
-	#category : 'OpenPonk-SynchronizedLinks-Tests',
-	#package : 'OpenPonk-SynchronizedLinks',
-	#tag : 'Tests'
+	#category : 'OpenPonk-SynchronizedLinks-Tests-Links',
+	#package : 'OpenPonk-SynchronizedLinks-Tests',
+	#tag : 'Links'
 }
 
 { #category : 'tests' }
