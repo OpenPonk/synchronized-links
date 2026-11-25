@@ -67,6 +67,16 @@ SRManyToManyLinkInterfaceTest >> testFirst [
 ]
 
 { #category : 'tests' }
+SRManyToManyLinkInterfaceTest >> testIndexOf [
+
+	| missingBook |
+	missingBook := SRTestBook new.
+	self assert: (a1 books indexOf: b1) equals: 1.
+	self assert: (a1 books indexOf: b2) equals: 2.
+	self assert: (a1 books indexOf: missingBook) equals: 0
+]
+
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testLast [
 	self assert: a1 books last equals: b2
 ]
@@ -77,8 +87,33 @@ SRManyToManyLinkInterfaceTest >> testLastN [
 ]
 
 { #category : 'tests' }
+SRManyToManyLinkInterfaceTest >> testRemoveReturnsRemovedElementAndHandlesAbsentAndNil [
+
+	| removed absentResult nilResult |
+	removed := a1 books remove: b1.
+	self assert: removed identicalTo: b1.
+	self assertCollection: a1 books asArray hasSameElements: { b2 }.
+	self assertEmpty: b1 authors.
+
+	absentResult := a1 books remove: b1 ifAbsent: [ #missing ].
+	self assert: absentResult equals: #missing.
+
+	nilResult := a1 books remove: nil ifAbsent: [ #missing ].
+	self assert: nilResult identicalTo: a1 books
+]
+
+{ #category : 'tests' }
 SRManyToManyLinkInterfaceTest >> testSecond [
 	self assert: a1 books second equals: b2
+]
+
+{ #category : 'tests' }
+SRManyToManyLinkInterfaceTest >> testSort [
+
+	a1 books sort: [ :firstBook :secondBook | firstBook == b2 or: [ secondBook == b1 ] ].
+	self assert: a1 books asArray equals: {
+			b2.
+			b1 }
 ]
 
 { #category : 'tests' }

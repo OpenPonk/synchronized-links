@@ -10,7 +10,7 @@ Class {
 	#tag : 'Links'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'private' }
 SRToOneLink class >> attach: anItem to: aContainer using: anItemSlotName [
 	| oppositeValue |
 	aContainer ifNil: [ ^ self ].
@@ -20,7 +20,7 @@ SRToOneLink class >> attach: anItem to: aContainer using: anItemSlotName [
 		ifFalse: [ aContainer writeSlotNamed: anItemSlotName value: anItem ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'private' }
 SRToOneLink class >> detach: anItem from: aContainer using: anItemSlotName [
 	| oppositeValue |
 	aContainer ifNil: [ ^ self ].
@@ -33,7 +33,7 @@ SRToOneLink class >> detach: anItem from: aContainer using: anItemSlotName [
 		ifFalse: [ aContainer writeSlotNamed: anItemSlotName value: nil ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'updating' }
 SRToOneLink class >> on: aSource slot: aSourceSlotName oppositeSlot: aTargetSlotName updateFrom: anOldTarget to: aNewTarget [
 	"S1 <-> T1 | S2 <-> T2 | S1: T2"
 

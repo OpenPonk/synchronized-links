@@ -49,6 +49,24 @@ SRManyToOneLinkTest >> testFromNone [
 ]
 
 { #category : 'tests' }
+SRManyToOneLinkTest >> testMoveFromToOneOwnerDetachesPreviousOwner [
+
+	| singleBook manyBook review |
+	singleBook := SRTestSingleReviewBook new.
+	manyBook := SRTestBook new.
+	review := SRTestReview new.
+	singleBook reviews: review.
+	self assert: review book identicalTo: singleBook.
+	self assert: singleBook reviews identicalTo: review.
+
+	manyBook reviews add: review.
+
+	self assert: singleBook reviews identicalTo: nil.
+	self assert: review book identicalTo: manyBook.
+	self assertCollection: manyBook reviews asArray hasSameElements: { review }
+]
+
+{ #category : 'tests' }
 SRManyToOneLinkTest >> testToNone [
 	| r1 b1 |
 	r1 := SRTestReview new.

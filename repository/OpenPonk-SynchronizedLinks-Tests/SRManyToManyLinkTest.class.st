@@ -10,6 +10,21 @@ Class {
 }
 
 { #category : 'tests' }
+SRManyToManyLinkTest >> testAddDuplicateIsIdempotent [
+
+	| author book returned |
+	author := SRTestAuthor new.
+	book := SRTestBook new.
+	author books add: book.
+
+	returned := author books add: book.
+
+	self assert: returned identicalTo: book.
+	self assert: author books asArray equals: { book }.
+	self assert: book authors asArray equals: { author }
+]
+
+{ #category : 'tests' }
 SRManyToManyLinkTest >> testChangePair [
 	| a1 b1 a2 b2 |
 	a1 := SRTestAuthor new.
@@ -66,6 +81,7 @@ SRManyToManyLinkTest >> testFromNone [
 
 { #category : 'tests' }
 SRManyToManyLinkTest >> testSton [
+
 	| author b1 b2 ston materializedA2 |
 	author := SRTestAuthor new.
 	b1 := SRTestBook new.
@@ -74,13 +90,9 @@ SRManyToManyLinkTest >> testSton [
 	author books add: b2.
 	ston := STON toStringPretty: author.
 	materializedA2 := STON fromString: ston.
-	self assertCollection: materializedA2 books size equals: 2.
-	self
-		assertCollection: materializedA2 books first authors size
-		equals: 1.
-	self
-		assertCollection: materializedA2 books first authors first
-		equals: materializedA2
+	self assert: materializedA2 books size equals: 2.
+	self assert: materializedA2 books first authors size equals: 1.
+	self assert: materializedA2 books first authors first identicalTo: materializedA2
 ]
 
 { #category : 'tests' }

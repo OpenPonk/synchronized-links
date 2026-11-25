@@ -40,9 +40,10 @@ SRToManyLink >> add: aNewObject [
 
 { #category : 'adding' }
 SRToManyLink >> addOppositeTo: anObject [
+
 	| oppositeObject |
 	oppositeObject := anObject readSlotNamed: targetSlotName.
-	(oppositeObject isKindOf: SRToManyLink)
+	(oppositeObject isKindOf: self class)
 		ifTrue: [ oppositeObject uncheckedAdd: source ]
 		ifFalse: [ anObject writeSlotNamed: targetSlotName value: source ]
 ]
@@ -107,11 +108,11 @@ SRToManyLink >> last: n [
 
 { #category : 'removing' }
 SRToManyLink >> remove: oldObject ifAbsent: anExceptionBlock [
+
 	oldObject ifNil: [ "there is some oddity when instantiating metamodel" ^ self ].
-	(collection includes: oldObject)
-		ifFalse: [ ^ anExceptionBlock value ].
+	(collection includes: oldObject) ifFalse: [ ^ anExceptionBlock value ].
 	self removeOppositeFrom: oldObject.
-	collection remove: oldObject" ifAbsent: [  ]"
+	^ collection remove: oldObject
 ]
 
 { #category : 'removing' }
@@ -121,20 +122,18 @@ SRToManyLink >> removeAll [
 
 { #category : 'adding' }
 SRToManyLink >> removeOppositeFrom: anObject [
+
 	| oppositeObject |
 	oppositeObject := anObject perform: targetSlotName.
 	oppositeObject ifNil: [ ^ self ].
-	(oppositeObject isKindOf: SRToManyLink)
-		ifTrue: [ (oppositeObject includes: source)
-				ifTrue: [ oppositeObject uncheckedRemove: source ].
+	(oppositeObject isKindOf: self class) ifTrue: [
+			(oppositeObject includes: source) ifTrue: [ oppositeObject uncheckedRemove: source ].
 			^ self ].
-	(oppositeObject readSlotNamed: slotName)
-		ifNotNil: [ :doubleOpposite | 
-			doubleOpposite = (source perform: slotName)
-				ifTrue: [ ^ anObject writeSlotNamed: targetSlotName value: nil ].
-			(doubleOpposite isKindOf: SRToManyLink)
+	(oppositeObject readSlotNamed: slotName) ifNotNil: [ :doubleOpposite |
+			doubleOpposite = (source perform: slotName) ifTrue: [ ^ anObject writeSlotNamed: targetSlotName value: nil ].
+			(doubleOpposite isKindOf: self class)
 				ifTrue: [ doubleOpposite uncheckedRemove: anObject ]
-				ifFalse: [ doubleOpposite writeSlotNamed: slotName value: nil ] ]
+				ifFalse: [ oppositeObject writeSlotNamed: slotName value: nil ] ]
 ]
 
 { #category : 'accessing' }

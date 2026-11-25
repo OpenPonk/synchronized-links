@@ -10,6 +10,16 @@ Class {
 }
 
 { #category : 'tests' }
+SROneToOneLinkTest >> testAttachToNilContainerIsNoOp [
+
+	| review result |
+	review := SRTestReview new.
+	result := SRToOneLink attach: review to: nil using: #reviews.
+	self assert: result identicalTo: SRToOneLink.
+	self assert: review book identicalTo: nil
+]
+
+{ #category : 'tests' }
 SROneToOneLinkTest >> testBothFromNil [
 	| r1 s1 |
 	r1 := SRTestReview new.
