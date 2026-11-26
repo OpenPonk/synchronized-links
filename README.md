@@ -1,7 +1,8 @@
 # Synchronized Links
-[![Build Status](https://travis-ci.com/OpenPonk/synchronized-links.svg?branch=master)](https://travis-ci.com/OpenPonk/synchronized-links) [![Coverage Status](https://coveralls.io/repos/github/OpenPonk/synchronized-links/badge.svg?branch=master)](https://coveralls.io/github/OpenPonk/synchronized-links?branch=master)
 
-Self-synchronizing links between objects.
+[![Nightly](https://github.com/OpenPonk/synchronized-links/actions/workflows/nightly.yml/badge.svg)](https://github.com/OpenPonk/synchronized-links/actions/workflows/nightly.yml) [![Coverage Status](https://coveralls.io/repos/github/OpenPonk/synchronized-links/badge.svg?branch=master)](https://coveralls.io/github/OpenPonk/synchronized-links?branch=master)
+
+Self-synchronizing bidirectional links between objects in Pharo (`1:1`, `1:N`, `N:1`, `N:M`).
 
 ```smalltalk
 review := SRTestReview new.
@@ -21,35 +22,37 @@ self assert: book authors asArray equals: {author}
 
 ## Installation
 
+See [openponk.org/#direct-installation](https://openponk.org/#direct-installation) for the supported Pharo version.
+
 ```smalltalk
 Metacello new
 	baseline: 'OpenPonkSynchronizedLinks';
-	repository: 'github://OpenPonk/synchronized-links/repository';
+	repository: 'github://OpenPonk/synchronized-links';
 	load.
 ```
 
 ## Usage
 
-### To One Link
+### To-One Link
 
-Review has a reference to a Single books.
+`Review` holds a reference to a single `Book`:
 
 ```smalltalk
 Review>>book
-  ^ book
+	^ book
 
 Review>>book: aBook
-  book := SRToOneLink
-    on: self
-    slot: #book
-    oppositeSlot: #reviews
-    updateFrom: book
-    to: aBook
+	book := SRToOneLink
+		on: self
+		slot: #book
+		oppositeSlot: #reviews
+		updateFrom: book
+		to: aBook
 ```
 
-### To Many Link
+### To-Many Link
 
-Single book can have many Reviews.
+A single `Book` can have many `Review`s:
 
 ```smalltalk
 Book>>reviews
@@ -60,16 +63,15 @@ Book>>reviews
 				oppositeSlot: #book ]
 
 Book>>reviews: aCollection
-  self reviews
-    removeAll;
-    addAll: aCollection
+	self reviews
+		removeAll;
+		addAll: aCollection
 ```
 
 ### Combinations
 
-The link will automatically resolve what is on the opposite side, so all variations (1:1, 1:N, N:1, N:M) work automatically.
+The link automatically resolves the opposite side, so `1:1`, `1:N`, `N:1`, and `N:M` relations work automatically. Links store elements internally in an `OrderedCollection`.
 
-### Other possibly interesting notes
+## Documentation
 
-The objects are internally stored in a OrderedCollection. Support for Set/Bag/OrderedSet will be probably added in the future.
-Slot implementation will probably also be added in the future.
+Part of the [OpenPonk](https://openponk.org) platform. For architecture, the repository catalog, and contributing guidelines, see [`OpenPonk/.github`](https://github.com/OpenPonk/.github/blob/main/profile/README.md).
